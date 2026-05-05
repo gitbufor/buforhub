@@ -3,14 +3,43 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Zakładki Nawigacja</title>
+  <title>Strona Nawigacyjna</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600&family=MedievalSharp&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=UnifrakturMaguntia&display=swap" rel="stylesheet">
   <style>
+    :root {
+      --bg:           #EAF5FC;
+      --bg-card:      #FFFFFF;
+      --bg-card-hover:#D6EEF9;
+      --border:       #BDE0F4;
+      --border-hover: #0079AB;
+      --text-main:    #003D56;
+      --text-sub:     #336B85;
+      --text-label:   #5AAAD4;
+      --accent-1:     #0079AB;
+      --accent-2:     #92CCF0;
+      --accent-warm:  #A1CF0C;
+      --accent-deep:  #005A80;
+      --header-line:  #92CCF0;
+
+      /* category dots */
+      --cat-news:   #0079AB;
+      --cat-local:  #92CCF0;
+      --cat-shop:   #A1CF0C;
+      --cat-entert: #0079AB;
+      --cat-tools:  #005A80;
+    }
+
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     body {
-      background: #0a0a0a;
-      color: #e8e6de;
-      font-family: 'Segoe UI', system-ui, sans-serif;
+      background: var(--bg);
+      background-image:
+        radial-gradient(ellipse 80% 50% at 20% -10%, rgba(146,204,240,0.25) 0%, transparent 60%),
+        radial-gradient(ellipse 60% 40% at 80% 110%, rgba(161,207,12,0.1) 0%, transparent 55%);
+      color: var(--text-main);
+      font-family: 'Outfit', sans-serif;
       min-height: 100vh;
       display: flex;
       flex-direction: column;
@@ -20,40 +49,45 @@
 
     header {
       text-align: center;
-      margin-bottom: 2.4rem;
+      margin-bottom: 2.6rem;
       width: 100%;
-      max-width: 940px;
+      max-width: 960px;
     }
 
     header h1 {
-      font-size: 2rem;
-      font-weight: 300;
-      letter-spacing: 0.14em;
-      color: #ffffff;
-      text-transform: uppercase;
+      font-family: 'UnifrakturMaguntia', cursive;
+      font-size: 2.6rem;
+      font-weight: 400;
+      letter-spacing: 0.04em;
+      color: var(--text-main);
+      font-style: normal;
     }
 
     header p {
-      margin-top: 0.5rem;
-      font-size: 0.88rem;
-      color: #555;
-      letter-spacing: 0.06em;
+      margin-top: 0.45rem;
+      font-size: 1rem;
+      color: var(--text-label);
+      letter-spacing: 0.08em;
+      font-weight: 400;
+      font-family: 'UnifrakturMaguntia', cursive;
+      text-transform: none;
     }
 
     .divider-header {
-      width: 40px;
-      height: 1px;
-      background: #333;
+      width: 48px;
+      height: 2px;
+      background: linear-gradient(90deg, var(--accent-1), var(--accent-2));
       margin: 1rem auto 0;
+      border-radius: 2px;
     }
 
-    /* ── edit toggle ── */
+    /* toolbar */
     .toolbar {
       display: flex;
       justify-content: flex-end;
       width: 100%;
-      max-width: 940px;
-      margin-bottom: 1.6rem;
+      max-width: 960px;
+      margin-bottom: 1.4rem;
       gap: 8px;
     }
 
@@ -61,34 +95,39 @@
       display: inline-flex;
       align-items: center;
       gap: 6px;
-      padding: 0.42rem 0.9rem;
-      border-radius: 6px;
+      padding: 0.44rem 1rem;
+      border-radius: 20px;
       font-size: 0.78rem;
       font-weight: 500;
       letter-spacing: 0.05em;
       cursor: pointer;
-      border: 1px solid #2e2e2e;
-      background: #161616;
-      color: #777;
-      transition: background 0.15s, color 0.15s, border-color 0.15s;
-      user-select: none;
+      border: 1.5px solid var(--border);
+      background: var(--bg-card);
+      color: var(--text-sub);
+      transition: all 0.18s;
+      font-family: 'Outfit', sans-serif;
     }
 
-    .btn:hover { background: #1e1e1e; color: #bbb; border-color: #444; }
+    .btn:hover {
+      background: var(--bg-card-hover);
+      color: var(--accent-deep);
+      border-color: var(--accent-2);
+      box-shadow: 0 2px 10px rgba(0,121,171,0.15);
+    }
 
     .btn.active {
-      background: #1a2a1a;
-      color: #3fcf7a;
-      border-color: #2d5a2d;
+      background: linear-gradient(135deg, var(--accent-1), var(--accent-deep));
+      color: #fff;
+      border-color: transparent;
+      box-shadow: 0 4px 14px rgba(0,121,171,0.35);
     }
 
-    .btn-reset { color: #555; }
-    .btn-reset:hover { color: #ff7255; border-color: #5a2020; }
+    .btn-reset:hover { color: #b04060; border-color: #f0c0cc; }
 
-    /* ── sections ── */
+    /* sections */
     .section {
       width: 100%;
-      max-width: 940px;
+      max-width: 960px;
       margin-bottom: 2.6rem;
     }
 
@@ -100,11 +139,11 @@
     }
 
     .section-label span {
-      font-size: 0.7rem;
+      font-size: 0.68rem;
       font-weight: 600;
-      letter-spacing: 0.16em;
+      letter-spacing: 0.18em;
       text-transform: uppercase;
-      color: #444;
+      color: var(--text-label);
       white-space: nowrap;
     }
 
@@ -112,80 +151,75 @@
       content: '';
       flex: 1;
       height: 1px;
-      background: #1e1e1e;
+      background: var(--border);
     }
 
     .dot {
-      width: 6px;
-      height: 6px;
+      width: 7px;
+      height: 7px;
       border-radius: 50%;
       flex-shrink: 0;
     }
 
-    .cat-tools   .dot { background: #4a9eff; }
-    .cat-news    .dot { background: #3fcf7a; }
-    .cat-local   .dot { background: #e09a2e; }
-    .cat-shop    .dot { background: #ff7255; }
-    .cat-entert  .dot { background: #a48cff; }
+    .cat-tools   .dot { background: var(--cat-tools); }
+    .cat-news    .dot { background: var(--cat-news); }
+    .cat-local   .dot { background: var(--cat-local); }
+    .cat-shop    .dot { background: var(--cat-shop); }
+    .cat-entert  .dot { background: var(--cat-entert); }
 
-    /* ── grid ── */
+    /* grid */
     .grid {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
-      gap: 0.75rem;
+      gap: 0.7rem;
     }
 
     .grid a {
       display: flex;
       align-items: center;
       gap: 12px;
-      padding: 0.9rem 1.1rem;
-      background: #111;
-      border: 1px solid #1c1c1c;
-      border-radius: 8px;
-      color: #b8b6ae;
+      padding: 0.88rem 1.1rem;
+      background: var(--bg-card);
+      border: 1.5px solid var(--border);
+      border-radius: 12px;
+      color: var(--text-sub);
       text-decoration: none;
-      transition: background 0.18s, border-color 0.18s, color 0.18s, transform 0.14s, box-shadow 0.18s;
+      transition: background 0.2s, border-color 0.2s, color 0.2s, transform 0.15s, box-shadow 0.2s;
       position: relative;
+      box-shadow: 0 1px 3px rgba(0,121,171,0.07);
     }
 
     .grid a:hover {
-      background: #181818;
-      border-color: #444;
-      color: #ffffff;
-      transform: translateY(-2px);
+      background: var(--bg-card-hover);
+      border-color: var(--border-hover);
+      color: var(--text-main);
+      transform: translateY(-3px);
+      box-shadow: 0 6px 20px rgba(0,121,171,0.16);
     }
 
     .grid a:active { transform: translateY(0); }
 
-    .cat-tools  .grid a:hover { border-left-color: #4a9eff; }
-    .cat-news   .grid a:hover { border-left-color: #3fcf7a; }
-    .cat-local  .grid a:hover { border-left-color: #e09a2e; }
-    .cat-shop   .grid a:hover { border-left-color: #ff7255; }
-    .cat-entert .grid a:hover { border-left-color: #a48cff; }
-
-    /* ── drag handle (hidden by default) ── */
+    /* drag handle */
     .drag-handle {
       display: none;
       position: absolute;
       top: 6px;
-      right: 6px;
+      right: 7px;
       width: 18px;
       height: 18px;
       align-items: center;
       justify-content: center;
-      color: #444;
+      color: var(--text-label);
       font-size: 12px;
       line-height: 1;
       cursor: grab;
-      border-radius: 3px;
+      border-radius: 4px;
       transition: color 0.12s, background 0.12s;
     }
 
-    .drag-handle:hover { color: #888; background: #222; }
+    .drag-handle:hover { color: var(--accent-deep); background: var(--bg-card-hover); }
     .drag-handle:active { cursor: grabbing; }
 
-    /* ── edit mode ── */
     body.edit-mode .drag-handle { display: flex; }
 
     body.edit-mode .grid a {
@@ -200,76 +234,75 @@
 
     .sortable-ghost {
       opacity: 0.3;
-      background: #1a1a1a !important;
-      border: 1px dashed #444 !important;
+      background: var(--bg-card-hover) !important;
+      border: 1.5px dashed var(--accent-2) !important;
     }
 
     .sortable-drag {
       opacity: 1 !important;
-      box-shadow: 0 8px 28px rgba(0,0,0,0.7) !important;
+      box-shadow: 0 10px 32px rgba(0,121,171,0.25) !important;
       transform: scale(1.03) !important;
-      border-color: #555 !important;
-      background: #1a1a1a !important;
+      border-color: var(--accent-1) !important;
       cursor: grabbing !important;
       z-index: 999;
     }
 
     body.edit-mode .grid a {
-      border-color: #252525;
+      border-color: var(--border);
     }
 
     body.edit-mode .grid a:hover {
       transform: none;
-      border-color: #333;
-      background: #141414;
+      border-color: var(--accent-2);
+      background: var(--bg-card);
     }
 
-    /* ── icons ── */
+    /* icons */
     .icon {
-      width: 34px;
-      height: 34px;
-      border-radius: 6px;
+      width: 36px;
+      height: 36px;
+      border-radius: 9px;
       display: flex;
       align-items: center;
       justify-content: center;
       flex-shrink: 0;
-      font-size: 15px;
+      font-size: 16px;
     }
 
-    .ic-blue   { background: #0d2540; color: #4a9eff; }
-    .ic-green  { background: #0a2214; color: #3fcf7a; }
-    .ic-amber  { background: #271a06; color: #e09a2e; }
-    .ic-purple { background: #1a1040; color: #a48cff; }
-    .ic-coral  { background: #2a1008; color: #ff7255; }
-    .ic-teal   { background: #062420; color: #2ecbc8; }
-    .ic-rose   { background: #280d1a; color: #ff6ea0; }
+    .ic-violet  { background: rgba(0,121,171,0.12);  color: #005A80; }
+    .ic-lavender{ background: rgba(146,204,240,0.25); color: #0079AB; }
+    .ic-warm    { background: rgba(161,207,12,0.15);  color: #6A8A00; }
+    .ic-rose    { background: rgba(0,121,171,0.18);   color: #0079AB; }
+    .ic-sky     { background: rgba(146,204,240,0.3);  color: #005A80; }
+    .ic-mint    { background: rgba(161,207,12,0.18);  color: #5A8A00; }
+    .ic-amber   { background: rgba(0,90,128,0.12);    color: #0079AB; }
 
     .link-text strong {
       display: block;
-      color: #dedad2;
+      color: var(--text-main);
       font-weight: 500;
       font-size: 0.88rem;
     }
 
     .link-text span {
       display: block;
-      color: #444;
+      color: var(--text-label);
       font-size: 0.73rem;
       margin-top: 2px;
     }
 
-    /* edit mode hint bar */
+    /* edit hint */
     .edit-hint {
       display: none;
       width: 100%;
-      max-width: 940px;
+      max-width: 960px;
       margin-bottom: 1rem;
-      padding: 0.5rem 0.8rem;
-      background: #0d1f0d;
-      border: 1px solid #1e3a1e;
-      border-radius: 6px;
+      padding: 0.5rem 0.9rem;
+      background: rgba(146,204,240,0.15);
+      border: 1.5px solid var(--accent-2);
+      border-radius: 8px;
       font-size: 0.75rem;
-      color: #3a8f5a;
+      color: var(--accent-deep);
       letter-spacing: 0.03em;
     }
 
@@ -278,15 +311,15 @@
     footer {
       margin-top: 1rem;
       font-size: 0.73rem;
-      color: #2a2a2a;
-      letter-spacing: 0.06em;
+      color: var(--text-label);
+      letter-spacing: 0.08em;
     }
   </style>
 </head>
 <body>
 
   <header>
-    <h1>Start Nawigacja</h1>
+    <h1>Strona Nawigacyjna</h1>
     <p>Nawigacja &mdash; Zakładki</p>
     <div class="divider-header"></div>
   </header>
@@ -305,25 +338,25 @@
 
       <a href="https://www.wikipedia.org" target="_blank" data-id="wikipedia">
         <span class="drag-handle">&#8942;&#8942;</span>
-        <div class="icon ic-green">&#9642;</div>
+        <div class="icon ic-mint">&#9642;</div>
         <div class="link-text"><strong>Wikipedia</strong><span>Encyklopedia online</span></div>
       </a>
 
       <a href="https://www.wp.pl/" target="_blank" data-id="wp">
         <span class="drag-handle">&#8942;&#8942;</span>
-        <div class="icon ic-green">&#9670;</div>
+        <div class="icon ic-violet">&#9670;</div>
         <div class="link-text"><strong>WP.pl</strong><span>Portal informacyjny</span></div>
       </a>
 
       <a href="https://www.onet.pl" target="_blank" data-id="onet">
         <span class="drag-handle">&#8942;&#8942;</span>
-        <div class="icon ic-green">&#9632;</div>
+        <div class="icon ic-lavender">&#9632;</div>
         <div class="link-text"><strong>Onet</strong><span>Wiadomości i portal</span></div>
       </a>
 
       <a href="https://www.infor.pl/" target="_blank" data-id="infor">
         <span class="drag-handle">&#8942;&#8942;</span>
-        <div class="icon ic-teal">&#9724;</div>
+        <div class="icon ic-sky">&#9724;</div>
         <div class="link-text"><strong>Infor.pl</strong><span>Prawo, podatki, kadry</span></div>
       </a>
 
@@ -343,20 +376,32 @@
 
       <a href="https://dziennikbaltycki.pl/" target="_blank" data-id="dziennik">
         <span class="drag-handle">&#8942;&#8942;</span>
-        <div class="icon ic-amber">&#9642;</div>
+        <div class="icon ic-warm">&#9642;</div>
         <div class="link-text"><strong>Dziennik Bałtycki</strong><span>Wiadomości regionalne</span></div>
       </a>
 
       <a href="https://nadmorski24.pl/" target="_blank" data-id="nadmorski">
         <span class="drag-handle">&#8942;&#8942;</span>
-        <div class="icon ic-teal">&#9675;</div>
+        <div class="icon ic-sky">&#9675;</div>
         <div class="link-text"><strong>Nadmorski24</strong><span>Aktualności nadmorskie</span></div>
       </a>
 
       <a href="https://telewizjattm.pl/" target="_blank" data-id="ttm">
         <span class="drag-handle">&#8942;&#8942;</span>
-        <div class="icon ic-coral">&#9654;</div>
+        <div class="icon ic-rose">&#9654;</div>
         <div class="link-text"><strong>Telewizja TTM</strong><span>TV lokalna Trójmiasto</span></div>
+      </a>
+
+      <a href="https://www.bibliotekarumia.pl/" target="_blank" data-id="bibliotekarumia">
+        <span class="drag-handle">&#8942;&#8942;</span>
+        <div class="icon ic-mint">&#9636;</div>
+        <div class="link-text"><strong>Biblioteka Rumia</strong><span>Biblioteka Miejska</span></div>
+      </a>
+
+      <a href="https://tkchopin.pl/" target="_blank" data-id="tkchopin">
+        <span class="drag-handle">&#8942;&#8942;</span>
+        <div class="icon ic-lavender">&#9834;</div>
+        <div class="link-text"><strong>TK Chopin</strong><span>Teatr i kultura</span></div>
       </a>
 
     </div>
@@ -375,31 +420,31 @@
 
       <a href="https://www.allegro.pl/" target="_blank" data-id="allegro">
         <span class="drag-handle">&#8942;&#8942;</span>
-        <div class="icon ic-coral">&#9679;</div>
+        <div class="icon ic-rose">&#9679;</div>
         <div class="link-text"><strong>Allegro</strong><span>Największy polski sklep</span></div>
       </a>
 
       <a href="https://www.olx.pl/" target="_blank" data-id="olx">
         <span class="drag-handle">&#8942;&#8942;</span>
-        <div class="icon ic-green">&#9650;</div>
+        <div class="icon ic-mint">&#9650;</div>
         <div class="link-text"><strong>OLX</strong><span>Ogłoszenia kupię / sprzedam</span></div>
       </a>
 
       <a href="https://www.ceneo.pl/" target="_blank" data-id="ceneo">
         <span class="drag-handle">&#8942;&#8942;</span>
-        <div class="icon ic-blue">&#9660;</div>
+        <div class="icon ic-violet">&#9660;</div>
         <div class="link-text"><strong>Ceneo</strong><span>Porównywarka cen</span></div>
       </a>
 
       <a href="https://www.empik.com/" target="_blank" data-id="empik">
         <span class="drag-handle">&#8942;&#8942;</span>
-        <div class="icon ic-rose">&#9632;</div>
+        <div class="icon ic-warm">&#9632;</div>
         <div class="link-text"><strong>Empik</strong><span>Książki, muzyka, elektronika</span></div>
       </a>
 
       <a href="https://www.morele.net/" target="_blank" data-id="morele">
         <span class="drag-handle">&#8942;&#8942;</span>
-        <div class="icon ic-purple">&#9670;</div>
+        <div class="icon ic-lavender">&#9670;</div>
         <div class="link-text"><strong>Morele.net</strong><span>Elektronika i sprzęt RTV</span></div>
       </a>
 
@@ -413,31 +458,31 @@
 
       <a href="https://www.youtube.com" target="_blank" data-id="youtube">
         <span class="drag-handle">&#8942;&#8942;</span>
-        <div class="icon ic-coral">&#9654;</div>
+        <div class="icon ic-rose">&#9654;</div>
         <div class="link-text"><strong>YouTube</strong><span>Wideo i muzyka</span></div>
       </a>
 
       <a href="https://www.netflix.com/" target="_blank" data-id="netflix">
         <span class="drag-handle">&#8942;&#8942;</span>
-        <div class="icon ic-coral">&#9646;</div>
+        <div class="icon ic-rose">&#9646;</div>
         <div class="link-text"><strong>Netflix</strong><span>Filmy i seriale online</span></div>
       </a>
 
       <a href="https://www.player.pl/" target="_blank" data-id="player">
         <span class="drag-handle">&#8942;&#8942;</span>
-        <div class="icon ic-rose">&#9654;</div>
+        <div class="icon ic-lavender">&#9654;</div>
         <div class="link-text"><strong>Player.pl</strong><span>TVN — filmy i seriale</span></div>
       </a>
 
       <a href="https://www.tvp.pl/" target="_blank" data-id="tvp">
         <span class="drag-handle">&#8942;&#8942;</span>
-        <div class="icon ic-blue">&#9632;</div>
+        <div class="icon ic-sky">&#9632;</div>
         <div class="link-text"><strong>TVP VOD</strong><span>Telewizja Polska online</span></div>
       </a>
 
       <a href="https://open.spotify.com/" target="_blank" data-id="spotify">
         <span class="drag-handle">&#8942;&#8942;</span>
-        <div class="icon ic-green">&#9836;</div>
+        <div class="icon ic-mint">&#9836;</div>
         <div class="link-text"><strong>Spotify</strong><span>Muzyka i podcasty</span></div>
       </a>
 
@@ -445,6 +490,12 @@
         <span class="drag-handle">&#8942;&#8942;</span>
         <div class="icon ic-amber">&#9733;</div>
         <div class="link-text"><strong>Filmweb</strong><span>Baza filmów i recenzje</span></div>
+      </a>
+
+      <a href="https://opentv.com/" target="_blank" data-id="opentv">
+        <span class="drag-handle">&#8942;&#8942;</span>
+        <div class="icon ic-violet">&#9654;</div>
+        <div class="link-text"><strong>OpenTV</strong><span>Telewizja online</span></div>
       </a>
 
     </div>
@@ -457,31 +508,31 @@
 
       <a href="https://www.google.pl" target="_blank" data-id="google">
         <span class="drag-handle">&#8942;&#8942;</span>
-        <div class="icon ic-blue">&#9679;</div>
+        <div class="icon ic-sky">&#9679;</div>
         <div class="link-text"><strong>Google</strong><span>Wyszukiwarka</span></div>
       </a>
 
       <a href="https://github.com" target="_blank" data-id="github">
         <span class="drag-handle">&#8942;&#8942;</span>
-        <div class="icon ic-purple">&#123;&#125;</div>
+        <div class="icon ic-violet">&#123;&#125;</div>
         <div class="link-text"><strong>GitHub</strong><span>Repozytoria kodu</span></div>
       </a>
 
       <a href="https://freefilesync.org/" target="_blank" data-id="freefilesync">
         <span class="drag-handle">&#8942;&#8942;</span>
-        <div class="icon ic-blue">&#8651;</div>
+        <div class="icon ic-lavender">&#8651;</div>
         <div class="link-text"><strong>FreeFileSync</strong><span>Synchronizacja plików</span></div>
       </a>
 
       <a href="https://veracrypt.io/en/Home.html" target="_blank" data-id="veracrypt">
         <span class="drag-handle">&#8942;&#8942;</span>
-        <div class="icon ic-teal">&#128274;</div>
+        <div class="icon ic-warm">&#128274;</div>
         <div class="link-text"><strong>VeraCrypt</strong><span>Szyfrowanie dysków</span></div>
       </a>
 
       <a href="https://www.videolan.org/" target="_blank" data-id="vlc">
         <span class="drag-handle">&#8942;&#8942;</span>
-        <div class="icon ic-coral">&#9654;</div>
+        <div class="icon ic-rose">&#9654;</div>
         <div class="link-text"><strong>VLC</strong><span>Odtwarzacz multimedialny</span></div>
       </a>
 
@@ -493,13 +544,13 @@
 
       <a href="https://tinywow.com/tools" target="_blank" data-id="tinywow">
         <span class="drag-handle">&#8942;&#8942;</span>
-        <div class="icon ic-rose">&#9889;</div>
+        <div class="icon ic-mint">&#9889;</div>
         <div class="link-text"><strong>TinyWow</strong><span>Narzędzia online</span></div>
       </a>
 
       <a href="https://www.anthropic.com" target="_blank" data-id="anthropic">
         <span class="drag-handle">&#8942;&#8942;</span>
-        <div class="icon ic-purple">&#9651;</div>
+        <div class="icon ic-lavender">&#9651;</div>
         <div class="link-text"><strong>Anthropic</strong><span>Badania AI</span></div>
       </a>
 
