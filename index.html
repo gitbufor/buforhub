@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Strona Nawigacyjna</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600&family=UnifrakturMaguntia&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet">
   <style>
     :root {
       --bg:           #EAF5FC;
@@ -21,30 +21,62 @@
       --accent-warm:  #A1CF0C;
       --accent-deep:  #005A80;
       --header-line:  #92CCF0;
- 
+
       --cat-news:   #0079AB;
       --cat-local:  #92CCF0;
       --cat-shop:   #A1CF0C;
       --cat-entert: #0079AB;
       --cat-tools:  #005A80;
     }
- 
+
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
- 
+
     body {
       background: var(--bg);
       background-image:
         radial-gradient(ellipse 80% 50% at 20% -10%, rgba(146,204,240,0.25) 0%, transparent 60%),
         radial-gradient(ellipse 60% 40% at 80% 110%, rgba(161,207,12,0.1) 0%, transparent 55%);
       color: var(--text-main);
-      font-family: 'Outfit', sans-serif;
+      font-family: 'Lato', sans-serif;
       min-height: 100vh;
       display: flex;
       flex-direction: column;
       align-items: center;
       padding: 3rem 1.5rem 4rem;
     }
- 
+
+    /* ── HEADER ── */
+    header {
+      text-align: center;
+      margin-bottom: 1.8rem;
+      width: 100%;
+      max-width: 960px;
+    }
+
+    header h1 {
+      font-family: 'Lato', sans-serif;
+      font-size: 2.6rem;
+      font-weight: 900;
+      letter-spacing: 0.04em;
+      color: var(--text-main);
+    }
+
+    header p {
+      margin-top: 0.45rem;
+      font-size: 1rem;
+      color: var(--text-label);
+      letter-spacing: 0.08em;
+      font-family: 'Lato', sans-serif;
+    }
+
+    .divider-header {
+      width: 48px;
+      height: 2px;
+      background: linear-gradient(90deg, var(--accent-1), var(--accent-2));
+      margin: 1rem auto 0;
+      border-radius: 2px;
+    }
+
     /* ── NBP PANEL ── */
     .nbp-panel {
       width: 100%;
@@ -60,10 +92,10 @@
       gap: 0.6rem 1.2rem;
       align-items: center;
     }
- 
+
     .nbp-title {
       font-size: 0.68rem;
-      font-weight: 600;
+      font-weight: 700;
       letter-spacing: 0.16em;
       text-transform: uppercase;
       color: var(--text-label);
@@ -73,19 +105,19 @@
       gap: 6px;
       margin-right: 0.4rem;
     }
- 
+
     .nbp-title::before {
       content: '🏦';
       font-size: 0.9rem;
     }
- 
+
     .nbp-rates {
       display: flex;
       flex-wrap: wrap;
       gap: 0.5rem 1rem;
       flex: 1;
     }
- 
+
     .nbp-rate {
       display: flex;
       align-items: center;
@@ -96,84 +128,52 @@
       border-radius: 20px;
       font-size: 0.82rem;
     }
- 
+
     .nbp-rate .currency {
-      font-weight: 600;
+      font-weight: 700;
       color: var(--text-main);
       letter-spacing: 0.04em;
     }
- 
+
     .nbp-rate .flag {
       font-size: 1rem;
       line-height: 1;
     }
- 
+
     .nbp-rate .value {
       color: var(--accent-deep);
-      font-weight: 500;
+      font-weight: 400;
     }
- 
+
     .nbp-rate .change {
       font-size: 0.72rem;
-      font-weight: 500;
+      font-weight: 700;
       padding: 1px 5px;
       border-radius: 6px;
     }
- 
+
     .nbp-rate .change.up   { color: #4a8c00; background: rgba(161,207,12,0.18); }
     .nbp-rate .change.down { color: #b03050; background: rgba(176,48,80,0.12); }
     .nbp-rate .change.flat { color: var(--text-label); background: rgba(146,204,240,0.2); }
- 
+
     .nbp-date {
       font-size: 0.7rem;
       color: var(--text-label);
       white-space: nowrap;
       margin-left: auto;
     }
- 
+
     .nbp-loading {
       font-size: 0.78rem;
       color: var(--text-label);
       font-style: italic;
     }
- 
+
     .nbp-error {
       font-size: 0.78rem;
       color: #b03050;
     }
- 
-    /* ── HEADER ── */
-    header {
-      text-align: center;
-      margin-bottom: 2.6rem;
-      width: 100%;
-      max-width: 960px;
-    }
- 
-    header h1 {
-      font-family: 'UnifrakturMaguntia', cursive;
-      font-size: 2.6rem;
-      font-weight: 400;
-      letter-spacing: 0.04em;
-      color: var(--text-main);
-    }
- 
-    header p {
-      margin-top: 0.45rem;
-      font-size: 1rem;
-      color: var(--text-label);
-      letter-spacing: 0.08em;
-      font-family: 'UnifrakturMaguntia', cursive;
-    }
- 
-    .divider-header {
-      width: 48px;
-      height: 2px;
-      background: linear-gradient(90deg, var(--accent-1), var(--accent-2));
-      margin: 1rem auto 0;
-      border-radius: 2px;
-    }
- 
+
     /* ── TOOLBAR ── */
     .toolbar {
       display: flex;
@@ -183,7 +183,7 @@
       margin-bottom: 1.4rem;
       gap: 8px;
     }
- 
+
     .btn {
       display: inline-flex;
       align-items: center;
@@ -191,82 +191,82 @@
       padding: 0.44rem 1rem;
       border-radius: 20px;
       font-size: 0.78rem;
-      font-weight: 500;
+      font-weight: 700;
       letter-spacing: 0.05em;
       cursor: pointer;
       border: 1.5px solid var(--border);
       background: var(--bg-card);
       color: var(--text-sub);
       transition: all 0.18s;
-      font-family: 'Outfit', sans-serif;
+      font-family: 'Lato', sans-serif;
     }
- 
+
     .btn:hover {
       background: var(--bg-card-hover);
       color: var(--accent-deep);
       border-color: var(--accent-2);
       box-shadow: 0 2px 10px rgba(0,121,171,0.15);
     }
- 
+
     .btn.active {
       background: linear-gradient(135deg, var(--accent-1), var(--accent-deep));
       color: #fff;
       border-color: transparent;
       box-shadow: 0 4px 14px rgba(0,121,171,0.35);
     }
- 
+
     .btn-reset:hover { color: #b04060; border-color: #f0c0cc; }
- 
+
     /* ── SECTIONS ── */
     .section {
       width: 100%;
       max-width: 960px;
       margin-bottom: 2.6rem;
     }
- 
+
     .section-label {
       display: flex;
       align-items: center;
       gap: 10px;
       margin-bottom: 0.9rem;
     }
- 
+
     .section-label span {
       font-size: 0.68rem;
-      font-weight: 600;
+      font-weight: 700;
       letter-spacing: 0.18em;
       text-transform: uppercase;
       color: var(--text-label);
       white-space: nowrap;
     }
- 
+
     .section-label::after {
       content: '';
       flex: 1;
       height: 1px;
       background: var(--border);
     }
- 
+
     .dot {
       width: 7px;
       height: 7px;
       border-radius: 50%;
       flex-shrink: 0;
     }
- 
+
     .cat-tools   .dot { background: var(--cat-tools); }
     .cat-news    .dot { background: var(--cat-news); }
     .cat-local   .dot { background: var(--cat-local); }
     .cat-shop    .dot { background: var(--cat-shop); }
     .cat-entert  .dot { background: var(--cat-entert); }
- 
+
     /* ── GRID ── */
     .grid {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
       gap: 0.7rem;
     }
- 
+
     .grid a {
       display: flex;
       align-items: center;
@@ -281,7 +281,7 @@
       position: relative;
       box-shadow: 0 1px 3px rgba(0,121,171,0.07);
     }
- 
+
     .grid a:hover {
       background: var(--bg-card-hover);
       border-color: var(--border-hover);
@@ -289,9 +289,9 @@
       transform: translateY(-3px);
       box-shadow: 0 6px 20px rgba(0,121,171,0.16);
     }
- 
+
     .grid a:active { transform: translateY(0); }
- 
+
     .drag-handle {
       display: none;
       position: absolute;
@@ -308,28 +308,28 @@
       border-radius: 4px;
       transition: color 0.12s, background 0.12s;
     }
- 
+
     .drag-handle:hover { color: var(--accent-deep); background: var(--bg-card-hover); }
     .drag-handle:active { cursor: grabbing; }
- 
+
     body.edit-mode .drag-handle { display: flex; }
- 
+
     body.edit-mode .grid a {
       cursor: default;
       pointer-events: none;
     }
- 
+
     body.edit-mode .grid a .drag-handle {
       pointer-events: all;
       cursor: grab;
     }
- 
+
     .sortable-ghost {
       opacity: 0.3;
       background: var(--bg-card-hover) !important;
       border: 1.5px dashed var(--accent-2) !important;
     }
- 
+
     .sortable-drag {
       opacity: 1 !important;
       box-shadow: 0 10px 32px rgba(0,121,171,0.25) !important;
@@ -338,13 +338,13 @@
       cursor: grabbing !important;
       z-index: 999;
     }
- 
+
     body.edit-mode .grid a:hover {
       transform: none;
       border-color: var(--accent-2);
       background: var(--bg-card);
     }
- 
+
     /* ── ICONS ── */
     .icon {
       width: 36px;
@@ -356,7 +356,7 @@
       flex-shrink: 0;
       font-size: 16px;
     }
- 
+
     .ic-violet  { background: rgba(0,121,171,0.12);  color: #005A80; }
     .ic-lavender{ background: rgba(146,204,240,0.25); color: #0079AB; }
     .ic-warm    { background: rgba(161,207,12,0.15);  color: #6A8A00; }
@@ -364,21 +364,22 @@
     .ic-sky     { background: rgba(146,204,240,0.3);  color: #005A80; }
     .ic-mint    { background: rgba(161,207,12,0.18);  color: #5A8A00; }
     .ic-amber   { background: rgba(0,90,128,0.12);    color: #0079AB; }
- 
+
     .link-text strong {
       display: block;
       color: var(--text-main);
-      font-weight: 500;
+      font-weight: 700;
       font-size: 0.88rem;
     }
- 
+
     .link-text span {
       display: block;
       color: var(--text-label);
       font-size: 0.73rem;
       margin-top: 2px;
+      font-weight: 300;
     }
- 
+
     .edit-hint {
       display: none;
       width: 100%;
@@ -392,20 +393,27 @@
       color: var(--accent-deep);
       letter-spacing: 0.03em;
     }
- 
+
     body.edit-mode .edit-hint { display: block; }
- 
+
     footer {
       margin-top: 1rem;
       font-size: 0.73rem;
       color: var(--text-label);
       letter-spacing: 0.08em;
+      font-weight: 300;
     }
   </style>
 </head>
 <body>
- 
-  <!-- NBP PANEL -->
+
+  <header>
+    <h1>Strona Nawigacyjna</h1>
+    <p>Nawigacja &mdash; Zakładki</p>
+    <div class="divider-header"></div>
+  </header>
+
+  <!-- NBP PANEL — pod nagłówkiem -->
   <div class="nbp-panel" id="nbp-panel">
     <div class="nbp-title">Kursy NBP</div>
     <div class="nbp-rates" id="nbp-rates">
@@ -413,254 +421,248 @@
     </div>
     <div class="nbp-date" id="nbp-date"></div>
   </div>
- 
-  <header>
-    <h1>Strona Nawigacyjna</h1>
-    <p>Nawigacja &mdash; Zakładki</p>
-    <div class="divider-header"></div>
-  </header>
- 
+
   <div class="toolbar">
     <button class="btn btn-reset" id="btn-reset" title="Przywróć domyślną kolejność">&#8635; Reset</button>
     <button class="btn" id="btn-edit">&#9998; Edytuj kolejność</button>
   </div>
- 
+
   <div class="edit-hint">&#9432;&nbsp; Przeciągnij kafelki za uchwyt (&#8942;) aby zmienić ich kolejność. Kolejność jest zapisywana automatycznie.</div>
- 
+
   <!-- INFORMACYJNE -->
   <div class="section cat-news">
     <div class="section-label"><div class="dot"></div><span>Informacyjne</span></div>
     <div class="grid" id="grid-news">
- 
+
       <a href="https://www.wikipedia.org" target="_blank" data-id="wikipedia">
         <span class="drag-handle">&#8942;&#8942;</span>
         <div class="icon ic-mint">&#9642;</div>
         <div class="link-text"><strong>Wikipedia</strong><span>Encyklopedia online</span></div>
       </a>
- 
+
       <a href="https://www.wp.pl/" target="_blank" data-id="wp">
         <span class="drag-handle">&#8942;&#8942;</span>
         <div class="icon ic-violet">&#9670;</div>
         <div class="link-text"><strong>WP.pl</strong><span>Portal informacyjny</span></div>
       </a>
- 
+
       <a href="https://www.onet.pl" target="_blank" data-id="onet">
         <span class="drag-handle">&#8942;&#8942;</span>
         <div class="icon ic-lavender">&#9632;</div>
         <div class="link-text"><strong>Onet</strong><span>Wiadomości i portal</span></div>
       </a>
- 
+
       <a href="https://www.gazeta.pl/0,0.html" target="_blank" data-id="gazetapl">
         <span class="drag-handle">&#8942;&#8942;</span>
         <div class="icon ic-rose">&#9673;</div>
         <div class="link-text"><strong>Gazeta.pl</strong><span>Wiadomości i publicystyka</span></div>
       </a>
- 
+
       <a href="https://www.infor.pl/" target="_blank" data-id="infor">
         <span class="drag-handle">&#8942;&#8942;</span>
         <div class="icon ic-sky">&#9724;</div>
         <div class="link-text"><strong>Infor.pl</strong><span>Prawo, podatki, kadry</span></div>
       </a>
- 
+
     </div>
   </div>
- 
+
   <!-- LOKALNE -->
   <div class="section cat-local">
     <div class="section-label"><div class="dot"></div><span>Lokalne &mdash; Trójmiasto</span></div>
     <div class="grid" id="grid-local">
- 
+
       <a href="https://www.trojmiasto.pl/" target="_blank" data-id="trojmiasto">
         <span class="drag-handle">&#8942;&#8942;</span>
         <div class="icon ic-amber">&#9670;</div>
         <div class="link-text"><strong>Trojmiasto.pl</strong><span>Portal Trójmiasta</span></div>
       </a>
- 
+
       <a href="https://dziennikbaltycki.pl/" target="_blank" data-id="dziennik">
         <span class="drag-handle">&#8942;&#8942;</span>
         <div class="icon ic-warm">&#9642;</div>
         <div class="link-text"><strong>Dziennik Bałtycki</strong><span>Wiadomości regionalne</span></div>
       </a>
- 
+
       <a href="https://nadmorski24.pl/" target="_blank" data-id="nadmorski">
         <span class="drag-handle">&#8942;&#8942;</span>
         <div class="icon ic-sky">&#9675;</div>
         <div class="link-text"><strong>Nadmorski24</strong><span>Aktualności nadmorskie</span></div>
       </a>
- 
+
       <a href="https://telewizjattm.pl/" target="_blank" data-id="ttm">
         <span class="drag-handle">&#8942;&#8942;</span>
         <div class="icon ic-rose">&#9654;</div>
         <div class="link-text"><strong>Telewizja TTM</strong><span>TV lokalna Trójmiasto</span></div>
       </a>
- 
+
       <a href="https://www.bibliotekarumia.pl/" target="_blank" data-id="bibliotekarumia">
         <span class="drag-handle">&#8942;&#8942;</span>
         <div class="icon ic-mint">&#9636;</div>
         <div class="link-text"><strong>Biblioteka Rumia</strong><span>Biblioteka Miejska</span></div>
       </a>
- 
+
       <a href="https://tkchopin.pl/" target="_blank" data-id="tkchopin">
         <span class="drag-handle">&#8942;&#8942;</span>
         <div class="icon ic-lavender">&#9834;</div>
         <div class="link-text"><strong>TK Chopin</strong><span>Teatr i kultura</span></div>
       </a>
- 
+
     </div>
   </div>
- 
+
   <!-- ZAKUPY -->
   <div class="section cat-shop">
     <div class="section-label"><div class="dot"></div><span>Zakupy</span></div>
     <div class="grid" id="grid-shop">
- 
+
       <a href="https://www.amazon.pl/" target="_blank" data-id="amazon">
         <span class="drag-handle">&#8942;&#8942;</span>
         <div class="icon ic-amber">&#9673;</div>
         <div class="link-text"><strong>Amazon</strong><span>Sklep internetowy</span></div>
       </a>
- 
+
       <a href="https://www.allegro.pl/" target="_blank" data-id="allegro">
         <span class="drag-handle">&#8942;&#8942;</span>
         <div class="icon ic-rose">&#9679;</div>
         <div class="link-text"><strong>Allegro</strong><span>Największy polski sklep</span></div>
       </a>
- 
+
       <a href="https://www.olx.pl/" target="_blank" data-id="olx">
         <span class="drag-handle">&#8942;&#8942;</span>
         <div class="icon ic-mint">&#9650;</div>
         <div class="link-text"><strong>OLX</strong><span>Ogłoszenia kupię / sprzedam</span></div>
       </a>
- 
+
       <a href="https://www.ceneo.pl/" target="_blank" data-id="ceneo">
         <span class="drag-handle">&#8942;&#8942;</span>
         <div class="icon ic-violet">&#9660;</div>
         <div class="link-text"><strong>Ceneo</strong><span>Porównywarka cen</span></div>
       </a>
- 
+
       <a href="https://www.empik.com/" target="_blank" data-id="empik">
         <span class="drag-handle">&#8942;&#8942;</span>
         <div class="icon ic-warm">&#9632;</div>
         <div class="link-text"><strong>Empik</strong><span>Książki, muzyka, elektronika</span></div>
       </a>
- 
+
       <a href="https://www.morele.net/" target="_blank" data-id="morele">
         <span class="drag-handle">&#8942;&#8942;</span>
         <div class="icon ic-lavender">&#9670;</div>
         <div class="link-text"><strong>Morele.net</strong><span>Elektronika i sprzęt RTV</span></div>
       </a>
- 
+
     </div>
   </div>
- 
+
   <!-- ROZRYWKA -->
   <div class="section cat-entert">
     <div class="section-label"><div class="dot"></div><span>Rozrywka</span></div>
     <div class="grid" id="grid-entert">
- 
+
       <a href="https://www.youtube.com" target="_blank" data-id="youtube">
         <span class="drag-handle">&#8942;&#8942;</span>
         <div class="icon ic-rose">&#9654;</div>
         <div class="link-text"><strong>YouTube</strong><span>Wideo i muzyka</span></div>
       </a>
- 
+
       <a href="https://www.netflix.com/" target="_blank" data-id="netflix">
         <span class="drag-handle">&#8942;&#8942;</span>
         <div class="icon ic-rose">&#9646;</div>
         <div class="link-text"><strong>Netflix</strong><span>Filmy i seriale online</span></div>
       </a>
- 
+
       <a href="https://www.player.pl/" target="_blank" data-id="player">
         <span class="drag-handle">&#8942;&#8942;</span>
         <div class="icon ic-lavender">&#9654;</div>
         <div class="link-text"><strong>Player.pl</strong><span>TVN — filmy i seriale</span></div>
       </a>
- 
+
       <a href="https://www.tvp.pl/" target="_blank" data-id="tvp">
         <span class="drag-handle">&#8942;&#8942;</span>
         <div class="icon ic-sky">&#9632;</div>
         <div class="link-text"><strong>TVP VOD</strong><span>Telewizja Polska online</span></div>
       </a>
- 
+
       <a href="https://open.spotify.com/" target="_blank" data-id="spotify">
         <span class="drag-handle">&#8942;&#8942;</span>
         <div class="icon ic-mint">&#9836;</div>
         <div class="link-text"><strong>Spotify</strong><span>Muzyka i podcasty</span></div>
       </a>
- 
+
       <a href="https://www.filmweb.pl/" target="_blank" data-id="filmweb">
         <span class="drag-handle">&#8942;&#8942;</span>
         <div class="icon ic-amber">&#9733;</div>
         <div class="link-text"><strong>Filmweb</strong><span>Baza filmów i recenzje</span></div>
       </a>
- 
+
       <a href="https://opentv.com/" target="_blank" data-id="opentv">
         <span class="drag-handle">&#8942;&#8942;</span>
         <div class="icon ic-violet">&#9654;</div>
         <div class="link-text"><strong>OpenTV</strong><span>Telewizja online</span></div>
       </a>
- 
+
     </div>
   </div>
- 
+
   <!-- NARZĘDZIA -->
   <div class="section cat-tools">
     <div class="section-label"><div class="dot"></div><span>Narzędzia</span></div>
     <div class="grid" id="grid-tools">
- 
+
       <a href="https://www.google.pl" target="_blank" data-id="google">
         <span class="drag-handle">&#8942;&#8942;</span>
         <div class="icon ic-sky">&#9679;</div>
         <div class="link-text"><strong>Google</strong><span>Wyszukiwarka</span></div>
       </a>
- 
+
       <a href="https://github.com" target="_blank" data-id="github">
         <span class="drag-handle">&#8942;&#8942;</span>
         <div class="icon ic-violet">&#123;&#125;</div>
         <div class="link-text"><strong>GitHub</strong><span>Repozytoria kodu</span></div>
       </a>
- 
+
       <a href="https://freefilesync.org/" target="_blank" data-id="freefilesync">
         <span class="drag-handle">&#8942;&#8942;</span>
         <div class="icon ic-lavender">&#8651;</div>
         <div class="link-text"><strong>FreeFileSync</strong><span>Synchronizacja plików</span></div>
       </a>
- 
+
       <a href="https://veracrypt.io/en/Home.html" target="_blank" data-id="veracrypt">
         <span class="drag-handle">&#8942;&#8942;</span>
         <div class="icon ic-warm">&#128274;</div>
         <div class="link-text"><strong>VeraCrypt</strong><span>Szyfrowanie dysków</span></div>
       </a>
- 
+
       <a href="https://www.videolan.org/" target="_blank" data-id="vlc">
         <span class="drag-handle">&#8942;&#8942;</span>
         <div class="icon ic-rose">&#9654;</div>
         <div class="link-text"><strong>VLC</strong><span>Odtwarzacz multimedialny</span></div>
       </a>
- 
+
       <a href="https://www.betterbird.eu/donate/" target="_blank" data-id="betterbird">
         <span class="drag-handle">&#8942;&#8942;</span>
         <div class="icon ic-amber">&#9993;</div>
         <div class="link-text"><strong>Betterbird</strong><span>Klient poczty e-mail</span></div>
       </a>
- 
+
       <a href="https://tinywow.com/tools" target="_blank" data-id="tinywow">
         <span class="drag-handle">&#8942;&#8942;</span>
         <div class="icon ic-mint">&#9889;</div>
         <div class="link-text"><strong>TinyWow</strong><span>Narzędzia online</span></div>
       </a>
- 
+
       <a href="https://www.anthropic.com" target="_blank" data-id="anthropic">
         <span class="drag-handle">&#8942;&#8942;</span>
         <div class="icon ic-lavender">&#9651;</div>
         <div class="link-text"><strong>Anthropic</strong><span>Badania AI</span></div>
       </a>
- 
+
     </div>
   </div>
- 
+
   <footer>&copy; 2026 &mdash; Moja Strona</footer>
- 
+
   <script src="https://cdnjs.cloudflare.com/ajax/libs/Sortable/1.15.2/Sortable.min.js"></script>
   <script>
     /* ── NBP KURSY ── */
@@ -671,27 +673,25 @@
       { code: 'CHF', flag: '🇨🇭' },
       { code: 'JPY', flag: '🇯🇵' },
     ];
- 
+
     async function fetchNBP() {
       const ratesEl = document.getElementById('nbp-rates');
       const dateEl  = document.getElementById('nbp-date');
       try {
-        // Tabela A — kursy średnie
         const res  = await fetch('https://api.nbp.pl/api/exchangerates/tables/A/?format=json');
         if (!res.ok) throw new Error('HTTP ' + res.status);
         const data = await res.json();
         const table = data[0];
         const ratesMap = {};
         table.rates.forEach(r => { ratesMap[r.code] = r.mid; });
- 
-        // poprzedni dzień roboczy — pobierz ostatnie 2 notowania żeby wyliczyć zmianę
+
         const res2 = await fetch('https://api.nbp.pl/api/exchangerates/tables/A/last/2/?format=json');
         const data2 = res2.ok ? await res2.json() : null;
         let prevMap = {};
         if (data2 && data2.length >= 2) {
           data2[0].rates.forEach(r => { prevMap[r.code] = r.mid; });
         }
- 
+
         ratesEl.innerHTML = '';
         NBP_CURRENCIES.forEach(({ code, flag }) => {
           const val = ratesMap[code];
@@ -719,19 +719,18 @@
             </div>
           `);
         });
- 
-        // data notowania
+
         const d = new Date(table.effectiveDate);
         dateEl.textContent = 'Notowanie: ' + d.toLocaleDateString('pl-PL', { day: '2-digit', month: '2-digit', year: 'numeric' });
- 
+
       } catch (e) {
         ratesEl.innerHTML = `<span class="nbp-error">Nie udało się pobrać kursów NBP. Sprawdź połączenie.</span>`;
         console.error('NBP fetch error:', e);
       }
     }
- 
+
     fetchNBP();
- 
+
     /* ── SORTABLE ── */
     const GRIDS = [
       { el: document.getElementById('grid-news'),   key: 'order-news'   },
@@ -740,11 +739,11 @@
       { el: document.getElementById('grid-entert'), key: 'order-entert' },
       { el: document.getElementById('grid-tools'),  key: 'order-tools'  },
     ];
- 
+
     const btnEdit  = document.getElementById('btn-edit');
     const btnReset = document.getElementById('btn-reset');
     let editMode = false;
- 
+
     function applyOrder(grid, key) {
       const saved = localStorage.getItem(key);
       if (!saved) return;
@@ -753,12 +752,12 @@
       [...grid.children].forEach(el => { map[el.dataset.id] = el; });
       ids.forEach(id => { if (map[id]) grid.appendChild(map[id]); });
     }
- 
+
     function saveOrder(grid, key) {
       const ids = [...grid.children].map(el => el.dataset.id);
       localStorage.setItem(key, JSON.stringify(ids));
     }
- 
+
     GRIDS.forEach(({ el, key }) => {
       applyOrder(el, key);
       Sortable.create(el, {
@@ -770,7 +769,7 @@
         onEnd() { saveOrder(el, key); }
       });
     });
- 
+
     btnEdit.addEventListener('click', () => {
       editMode = !editMode;
       document.body.classList.toggle('edit-mode', editMode);
@@ -780,7 +779,7 @@
         Sortable.get(el).option('disabled', !editMode);
       });
     });
- 
+
     btnReset.addEventListener('click', () => {
       if (!confirm('Przywrócić domyślną kolejność kafelków?')) return;
       GRIDS.forEach(({ key }) => localStorage.removeItem(key));
